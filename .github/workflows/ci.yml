@@ -1,0 +1,31 @@
+name: public-ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build userspace capture example
+        run: |
+          sudo apt-get update && sudo apt-get install -y gcc make
+          make -C sw/examples
+          ./sw/examples/v4l2_capture 2>&1 | head -3 || true
+      - name: Compile device tree overlay (syntax check)
+        run: |
+          sudo apt-get install -y device-tree-compiler
+          dtc -I dts -O dtb -o /tmp/shakti_mipi.dtb sw/linux_v4l2/shakti_mipi.dts
+      - name: Confidentiality guard – fail if RTL internals present
+        run: |
+          echo "Checking that no confidential paths are published..."
+          ! grep -riE --include='*' \
+            -e 'C:\\' -e '/mnt/c' -e 'shakti-baseline/' -e 'AIQ-2' \
+            -e 'MIPI-CI2-AI-Camera-SOC-Automotive' \
+            --exclude-dir=.git . && echo "guard PASS"
+          echo "Checking blocklist (rtl/sim/formal/verif/sta/ip-xact/errata)..."
+          ! ls rtl sim formal verif sta ip-xact errata checkpoints 2>/dev/null && echo "blocklist PASS"

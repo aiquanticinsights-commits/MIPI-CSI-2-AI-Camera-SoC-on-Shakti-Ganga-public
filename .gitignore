@@ -1,0 +1,20 @@
+# Public release – never commit build outputs or confidential material
+*.o
+*.elf
+frame.raw
+*.dtb
+v4l2_capture
+.DS_Store
+*~
+# Confidential design material (must never appear here)
+/rtl
+/sim
+/formal
+/verif
+/sta
+/ip-xact
+/errata
+/checkpoints
+/commercial
+*.bit
+*.dcp
