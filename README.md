@@ -18,7 +18,8 @@ README.md            This file
 LICENSE              Apache-2.0 (this public release)
 docs/                Product brief, architecture, setup, verification
 sw/                  Public SDK: headers, Linux V4L2 driver, examples
-examples/            Board support (constraints, programming guide)
+examples/            Board support (constraints, bitstream, programming guide)
+vivado/              Build scripts reproducing the bitstream (needs RTL license)
 ```
 
 ## Hardware requirements

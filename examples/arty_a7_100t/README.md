@@ -5,8 +5,8 @@
 - `top_ganga_mipi.xdc` – pin constraints for the prebuilt bitstream
   (100 MHz `sys_clk` E3, `sys_rst` C2, LEDs, UART). Board pins follow
   the public Digilent Arty A7 reference manual.
-- Bitstream: download `ganga_mipi_top.bit` (3.7 MB) from
-  [Releases](../../../releases) (v0.3-ganga-public).
+- Bitstream: `ganga_mipi_top.bit` (3.7 MB, in this directory;
+  also attached to the v0.3-ganga-public GitHub Release).
 
 ## Program via openocd
 

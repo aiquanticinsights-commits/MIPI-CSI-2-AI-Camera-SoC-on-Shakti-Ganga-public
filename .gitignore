@@ -17,4 +17,5 @@ v4l2_capture
 /checkpoints
 /commercial
 *.bit
+!examples/arty_a7_100t/*.bit
 *.dcp

@@ -8,8 +8,8 @@ Goal: program the prebuilt bitstream, load the V4L2 driver, capture a frame.
   `ls /dev/ttyUSB*` (typically `ttyUSB0` = JTAG, `ttyUSB1` = UART).
 - Ubuntu 22.04/24.04 host with `openocd` (or Vivado Lab, free download):
   `sudo apt install -y openocd`
-- Prebuilt bitstream from [Releases](../../releases):
-  `ganga_mipi_top.bit` (v0.3-ganga-public, 3.7 MB).
+- Prebuilt bitstream `examples/arty_a7_100t/ganga_mipi_top.bit`
+  (v0.3-ganga-public, 3.7 MB; also attached to the GitHub Release).
 
 ## 2. Program the FPGA
 
