@@ -1,0 +1,16 @@
+flowchart TB
+    subgraph SKEL[vivado/bd.tcl - skeleton, NOT in bitstream]
+        direction LR
+        MIPIIP[mipi_csi2_rx_subsystem 6.0<br/>Xilinx IP, 4 lanes]
+        AXIIC[axi_interconnect<br/>4x MI]
+        NOTE1[validate deferred<br/>no clocks wired]
+    end
+    subgraph PROVEN[vivado/run_bitstream.tcl - verified bitstream]
+        direction LR
+        SOFT[soft RTL only<br/>csi2_rx + vc + isp + ai]
+        XDC[board pins<br/>clk/rst/led/uart]
+        BIT[ganga_mipi_top.bit<br/>3.7 MB, WNS +5.5ns]
+    end
+    MIPIIP -.-|future full-custom| SOFT
+    SKEL -.->|not synthesized| PROVEN
+    SOFT --> BIT

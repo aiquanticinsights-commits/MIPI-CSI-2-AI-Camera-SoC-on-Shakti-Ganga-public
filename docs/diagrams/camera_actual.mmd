@@ -1,0 +1,24 @@
+flowchart LR
+    subgraph PGEN[Internal pattern source - NO camera pads]
+        direction TB
+        TICK[tick_q counter<br/>100 MHz sys_clk]
+        SOT[sot_phase + hs_p/hs_n<br/>lp_p/lp_n stimulus]
+    end
+    subgraph PIPE[MIPI pipeline - soft RTL]
+        direction TB
+        CSI[csi2_rx<br/>1 lane, 64x48]
+        VC[vc_merge<br/>1 sensor]
+        ISP[isp_pipeline<br/>Bayer to RGB]
+        AI[ai_preproc<br/>resize + INT8]
+    end
+    subgraph BOARD[Arty A7-100T pins - actual]
+        direction TB
+        CLK[E3 sys_clk 100M]
+        RST[C2 sys_rst]
+        LED[led 0..3]
+        UART[D10/A9 uart]
+    end
+    TICK --> SOT --> CSI --> VC --> ISP --> AI
+    CSI -.->|frame LED| LED
+    CLK --> PGEN
+    CLK --> PIPE

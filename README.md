@@ -63,6 +63,8 @@ Details: `docs/verification_summary.md`, `docs/BITSTREAM_GANGA.md`.
 | `docs/register_map.md` | AXI-Lite register map for driver use |
 | `docs/verification_summary.md` | Test results |
 | `docs/known_issues.md` | Errata affecting public users |
+| `docs/07_Camera_Connectivity_QA.md` | Camera/Ganga/IP/Shakti queries with evidence + diagrams |
+| `docs/DIAGRAMS.md` | Rendered block diagrams (`.mmd` sources alongside) |
 
 ## License
 

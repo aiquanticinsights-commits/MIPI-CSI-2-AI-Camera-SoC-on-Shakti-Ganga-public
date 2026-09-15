@@ -1,0 +1,25 @@
+flowchart TB
+    subgraph PUB[In this public release]
+        direction LR
+        DOC[docs + register map]
+        DRV[shakti_mipi.c + .dts<br/>targets Ganga addrs/IRQs]
+        XDC[Arty pin constraints<br/>Ganga-compatible]
+        PBIT[prebuilt bitstream<br/>release asset]
+    end
+    subgraph EXT[External - Shakti GC2025 project]
+        direction LR
+        BSV[Shakti BSV sources<br/>needs BSC build]
+        MCS[prebuilt Ganga/Yamuna<br/>.bit + .mcs]
+        SDK[GCSDK BSP + drivers]
+    end
+    subgraph MISS[Not present - roadmap]
+        direction LR
+        MKV[mkSoc Verilog<br/>needs BSC]
+        SOCDCP[SoC checkpoint<br/>for BD import]
+        FULL[full SoC + camera<br/>custom bitstream]
+    end
+    DRV -->|compatible with| MCS
+    XDC -->|same FPGA + pins| MCS
+    BSV -->|builds| MKV --> FULL
+    SOCDCP --> FULL
+    PUB -.->|documents interface to| EXT

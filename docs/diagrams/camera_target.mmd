@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph CAM[Camera module]
+        direction TB
+        SENS[IMX219 / OV13850<br/>MIPI D-PHY 1-4 lanes]
+        SCCB[SCCB config<br/>via Ganga I2C]
+        RSTN[RST + PWDN<br/>via Ganga GPIO]
+    end
+    subgraph BRG[MC20901 bridge]
+        direction TB
+        DPHY[D-PHY HS receiver<br/>up to 1.5 Gbps]
+        PAR[Parallel + clock<br/>to FPGA PMOD]
+    end
+    subgraph FPGA[Arty A7-100T - target]
+        direction TB
+        PMOD[PMOD JA/JB<br/>D-PHY pairs]
+        GPIPE[MIPI pipeline<br/>CSI-2 RX, VC, ISP, AI]
+        GANGA[Shakti Ganga RV64<br/>V4L2 + DMA to DDR]
+    end
+    SENS --> DPHY --> PAR --> PMOD --> GPIPE --> GANGA
+    GANGA --> SCCB --> SENS
+    GANGA --> RSTN --> SENS
