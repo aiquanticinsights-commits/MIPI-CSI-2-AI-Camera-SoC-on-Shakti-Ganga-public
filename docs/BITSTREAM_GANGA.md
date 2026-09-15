@@ -1,7 +1,7 @@
 # Ganga MIPI Bitstream – Build and Verification Record
 
 **Tool:** Vivado 2026.1 | **Part:** xc7a100tcsg324-1 (Arty A7-100T) |
-**Release:** v0.3-ganga-public
+**Releases:** v0.3-ganga-public, v0.3-ganga-revB
 
 ## Design under test
 
@@ -20,6 +20,21 @@ The same constraints shipped here (`examples/arty_a7_100t/`) were used.
   all constraints met.
 - Bitstream: `ganga_mipi_top.bit`, 3.7 MB, "Bitgen Completed Successfully".
 - Utilization: Slice LUTs 103 (0.16%), Slice Registers 179 (0.14%).
+
+## Rev B (2026-09-15) – camera pads added
+
+- Change: pad bundle on PMOD JA (`cam_lp_p/n` JA1/JA2, `cam_hs_p/n`
+  JA3/JA4, `cam_clk` JA7, `cam_sel` JA8; LVCMOS33) + synchronized
+  pattern/pads mux (`cam_sel` 0 = pattern default, 1 = pads).
+- XSIM two-phase: pattern frames flowing, then pads frames flowing
+  with mux selected (`PASS` both modes).
+- Synthesis: 0 errors; ~110 LUTs, 180 FDCE + 5 FDPE.
+- Implementation: routing 0 failed nets, DRC 0 errors.
+- Timing: WNS +4.945 ns, WHS +0.094 ns, 0 failing – all constraints met.
+- Bitstream: `ganga_mipi_top_revB.bit`, 3.65 MB, "Bitgen Completed
+  Successfully".
+- Utilization: Slice LUTs 107 (0.17%), Slice Registers 185 (0.15%).
+- Cost of camera input: +4 LUTs / +6 registers over v0.3.
 
 ## Reproducing (licensed users with RTL access)
 

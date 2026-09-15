@@ -42,13 +42,14 @@ Full steps: `docs/quickstart.md`. Board setup: `docs/setup_guide.md`.
 
 ## Measured results (Arty A7-100T, Vivado 2026.1)
 
-| Metric | Value |
-|--------|-------|
-| Bitstream | `ganga_mipi_top.bit`, 3.7 MB |
-| Utilization | 103 LUTs (0.16%), 179 registers (0.14%) |
-| Timing | WNS +5.534 ns, WHS +0.017 ns, 0 failing endpoints |
-| Simulation | XSIM behavioral PASS, frames flowing |
-| Pipeline | CSI-2 RX -> VC merge -> ISP (Bayer to RGB) -> AI preproc (resize + INT8) |
+| Metric | v0.3 | rev B (camera pads) |
+|--------|------|---------------------|
+| Bitstream | `ganga_mipi_top.bit`, 3.7 MB | `ganga_mipi_top_revB.bit`, 3.65 MB |
+| Utilization | 103 LUTs, 179 regs | 107 LUTs, 185 regs |
+| Timing | WNS +5.534 ns, WHS +0.017 ns | WNS +4.945 ns, WHS +0.094 ns |
+| Simulation | XSIM PASS, pattern | XSIM PASS, pattern + pads |
+| Camera input | – (pattern only) | PMOD JA pads, `cam_sel` (JA8) |
+| Pipeline | CSI-2 RX -> VC merge -> ISP (Bayer to RGB) -> AI preproc (resize + INT8) | same |
 
 Details: `docs/verification_summary.md`, `docs/BITSTREAM_GANGA.md`.
 

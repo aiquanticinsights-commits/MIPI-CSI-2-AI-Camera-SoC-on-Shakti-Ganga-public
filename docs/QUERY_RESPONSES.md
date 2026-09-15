@@ -27,9 +27,13 @@ Ganga I2C/GPIO controlling the sensor):
 
 *Source: `docs/diagrams/camera_target.mmd`.*
 
-**Actions:** add MIPI pad bundle (PMOD JA/JB) to top + XDC, add
-pattern-vs-pads select register, rebuild via `vivado/run_bitstream.tcl`,
-publish rev-B bitstream.
+**Update 2026-09-15 – rev B built and verified:** pad bundle on PMOD JA
+(`cam_lp_p/n` JA1/JA2, `cam_hs_p/n` JA3/JA4, `cam_clk` JA7, `cam_sel` JA8)
+with synchronized pattern/pads mux. XSIM passes in both modes; rev-B
+bitstream (`examples/arty_a7_100t/ganga_mipi_top_revB.bit`, 3.65 MB):
+DRC 0 errors, WNS +4.945 ns / WHS +0.094 ns, 107 LUTs / 185 regs.
+Camera wiring: `examples/arty_a7_100t/README.md`. Full record:
+`docs/BITSTREAM_GANGA.md`.
 
 ---
 

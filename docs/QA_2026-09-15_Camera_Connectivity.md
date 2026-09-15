@@ -85,4 +85,18 @@ per `docs/quickstart.md`. SoC rebuild path documented in
 
 ---
 
+---
+
+## Update 2026-09-15 (same day) – Q1 committed actions built
+
+Rev B implemented, verified, and released:
+
+- Pads: `cam_lp_p/n` JA1/JA2 (G13/B11), `cam_hs_p/n` JA3/JA4 (A11/D12),
+  `cam_clk` JA7 (D13), `cam_sel` JA8 (B18); 2FF sync + mux.
+- XSIM: pattern frames flowing, pads frames flowing with mux selected.
+- Bitstream `examples/arty_a7_100t/ganga_mipi_top_revB.bit` (3.65 MB):
+  DRC 0 errors, WNS +4.945 ns / WHS +0.094 ns, 107 LUTs / 185 regs.
+- Wiring + programming: `examples/arty_a7_100t/README.md`; numbers:
+  `docs/BITSTREAM_GANGA.md`; diagram set unchanged (target now built).
+
 *End of log 2026-09-15. New queries append as dated sections below.*

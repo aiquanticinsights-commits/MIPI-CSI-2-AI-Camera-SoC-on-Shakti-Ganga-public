@@ -22,8 +22,15 @@ the error LED. **Workaround:** reprogram the bitstream or toggle the
 sensor reset GPIO, then restart streaming. **Status:** documented
 limitation.
 
+## K-PUB-004 – Rev-B boots in pattern mode (camera silent until selected)
+
+**Symptom:** With the rev-B bitstream, no camera traffic flows after
+programming even with the module wired. **Cause:** `cam_sel` (JA8)
+defaults low = internal pattern. **Workaround:** drive JA8 high for
+camera input. **Status:** documented behavior.
+
 ## Reporting new issues
 
 Open a GitHub issue with: board revision, camera module, bitstream
-version (`v0.3-ganga-public`), kernel log (`dmesg`), and steps to
-reproduce.
+version (`v0.3-ganga-public` or `v0.3-ganga-revB`), kernel log
+(`dmesg`), and steps to reproduce.

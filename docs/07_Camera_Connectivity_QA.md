@@ -43,11 +43,11 @@ drives `csi2_rx` LP/HS inputs -> `vc_merge` -> `isp_pipeline` ->
 `V4L2 + DMA`; Ganga `I2C` drives sensor SCCB, Ganga `GPIO` drives
 reset/power-down.*
 
-| Action | Owner | Output |
+| Action | Owner | Status 2026-09-15 |
 |---|---|---|
-| Add MIPI pad bundle (clk + 1-4 data pairs, PMOD JA/JB) to top + XDC | RTL (confidential) | `top_ganga_mipi` rev B |
-| Route sensor stimulus switch (pattern vs pads) via register | RTL (confidential) | Back-compatible bitstream |
-| Re-run `vivado/run_bitstream.tcl`, update `docs/BITSTREAM_GANGA.md` | Build | `ganga_mipi_top` rev B `.bit` |
+| Add MIPI pad bundle (PMOD JA) to top + XDC | RTL (confidential) | **Done** – `cam_lp_p/n` JA1/JA2, `cam_hs_p/n` JA3/JA4, `cam_clk` JA7, `cam_sel` JA8 |
+| Route sensor stimulus switch (pattern vs pads) | RTL (confidential) | **Done** – 2FF-synced mux, `cam_sel` 0 = pattern default |
+| Re-run build, update `docs/BITSTREAM_GANGA.md` | Build | **Done** – `ganga_mipi_top_revB.bit` 3.65 MB, XSIM PASS both modes, DRC 0 err, WNS +4.945 ns |
 
 ## 2. Q2 – MIPI RX Subsystem IP in board files
 
