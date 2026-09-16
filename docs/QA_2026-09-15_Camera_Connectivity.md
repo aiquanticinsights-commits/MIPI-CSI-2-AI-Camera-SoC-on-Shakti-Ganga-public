@@ -5,7 +5,7 @@
 | Date queries received | 2026-09-15 |
 | Date answered | 2026-09-15 |
 | Release under review | v0.3-ganga-public |
-| Responders | Maintainers, MIPI CSI-2 AI Camera SoC on Shakti Ganga |
+| Responders | Maintainers, MIPI decode + camera processing pipeline IP on Shakti Ganga |
 | Diagrams | `docs/DIAGRAMS.md`, sources in `docs/diagrams/*.mmd` |
 | Evidence doc | `docs/07_Camera_Connectivity_QA.md` |
 

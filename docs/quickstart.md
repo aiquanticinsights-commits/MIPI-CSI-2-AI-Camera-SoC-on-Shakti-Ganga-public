@@ -1,4 +1,4 @@
-# Quickstart – MIPI CSI-2 AI Camera on Shakti Ganga
+# Quickstart – MIPI decode + camera processing pipeline IP on Shakti Ganga
 
 Goal: program the prebuilt bitstream, load the V4L2 driver, capture a frame.
 

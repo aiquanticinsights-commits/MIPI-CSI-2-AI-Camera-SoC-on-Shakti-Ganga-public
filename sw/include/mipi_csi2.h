@@ -1,5 +1,5 @@
 /*
- * MIPI CSI-2 AI Camera IP - Software Header
+ * MIPI decode + camera processing pipeline IP - Software Header
  *
  * Copyright (C) 2026 Open Source MIPI CSI-2 IP Project
  * SPDX-License-Identifier: Apache-2.0

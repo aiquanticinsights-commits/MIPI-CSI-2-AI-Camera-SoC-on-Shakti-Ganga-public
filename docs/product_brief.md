@@ -1,4 +1,4 @@
-# Product Brief – MIPI CSI-2 AI Camera SoC on Shakti Ganga
+# Product Brief – MIPI decode + camera processing pipeline IP on Shakti Ganga
 
 **Release:** v0.3-ganga-public | **Target:** Arty A7-100T (xc7a100tcsg324-1)
 

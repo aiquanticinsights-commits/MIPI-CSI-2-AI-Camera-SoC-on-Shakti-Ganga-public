@@ -1,4 +1,4 @@
-# MIPI CSI-2 AI Camera SoC on Shakti Ganga
+# MIPI decode + camera processing pipeline IP on Shakti Ganga
 
 MIPI CSI-2 camera pipeline with ISP and AI preprocessing, running on the
 Shakti Ganga (RV64) SoC on a Digilent Arty A7-100T board.

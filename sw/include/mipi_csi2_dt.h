@@ -1,5 +1,5 @@
 /*
- * Device Tree Bindings for MIPI CSI-2 AI Camera IP
+ * Device Tree Bindings for MIPI decode + camera processing pipeline IP
  *
  * Copyright (C) 2026 Open Source MIPI CSI-2 IP Project
  * SPDX-License-Identifier: Apache-2.0
